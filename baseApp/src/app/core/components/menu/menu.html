@@ -1,0 +1,69 @@
+<div class="tic-pfm-menu-bar">
+  <div class="tic-pfm-menu-left">
+    <div class="tic-pfm-icon" matTooltip="Main Menu"  matTooltipPosition="right" (click)="toggleSideNav()">
+      <i class="bi bi-list"></i>
+    </div>
+    <div class="LogoImageContainer">
+      <img class="tic-pfm-org-image" width="100%" src="/assets/Images/tic-logo.png" alt="">
+    </div>
+    <span class="tic-pfm-menu-title">{{appUtils.appConfig.applicationName}}</span>
+  </div>
+  <div class="tic-pfm-menu-right">
+    <div class="LogoImageContainer" matTooltip="Notification">
+      <img src="/assets/Images/notification.png" width="100%" alt="">
+    </div>
+    <div class="userProfile" matTooltip={{appUtils.appConfig.userName}}>
+      <span [ngStyle]="{
+        'background-color': appUtils.appConfig.userName[0] | bgColor,
+      }">{{ appUtils.appConfig.userName[0] | uppercase }}</span>
+    </div>
+  </div>
+</div>
+<div class="menu-backdrop" [@fadeInOut]="backdropState" (click)="toggleSideNav()"></div>
+<div #sideNavContainer class="tic-pfm-side-nav-container" [@slideInOut]="sideNavState">
+  <div class="tic-pfm-menu-spacer"></div>
+  <div class="navBox" (click)="onMenuSelected('home')">
+    <div class="tic-pfm-menu-icon">
+      <i class="bi bi-house-door"></i>
+    </div>
+    <div class="tic-menu-item-name">
+      <span matTooltip="Home">Home</span>
+    </div>
+    <div class="single-menu tic-pfm-icon">
+      <i style="margin-top: 0.8vh;" ></i>
+    </div>
+  </div>
+  <div class="nav-container" *ngFor="let menu of menuConfigData" (click)="!menu.menuItems ? onMenuSelected(menu) : null">
+    <div class="navBox" (click)="menu.menuItems ? toggleMenuGroup(menu) : null" >
+      <div class="tic-pfm-menu-icon" [ngStyle]="{'background-color': menu?.expand ? 'rgba(0, 140, 255, 0.642)' : '#eee'}">
+        <i [ngStyle]="{'color': menu?.expand ? '#fff' : '#000'}" class={{menu.menuIcon}}></i>
+      </div>
+      <div class="tic-menu-item-name">
+        <span matTooltip={{menu.menuDisplayName}}>{{menu.menuDisplayName}}</span>
+      </div>
+      <div class="single-menu tic-pfm-icon" *ngIf="!menu?.menuItems?.length">
+        <i style="margin-top: 0.8vh;" ></i>
+      </div>
+      <div class="single-menu tic-pfm-icon expand-collapse-btn" matTooltip="Expand" *ngIf="!menu.expand && menu?.menuItems?.length > 0" (click)="collapseGroupMenu(menu)">
+        <i style="margin-top: 0.8vh;" class="bi bi-caret-down-fill"></i>
+      </div>
+      <div class="single-menu tic-pfm-icon expand-collapse-btn" matTooltip="Collapse" *ngIf="menu.expand && menu?.menuItems?.length > 0" (click)="expandGroupMenu(menu)">
+        <i style="margin-top: 0.8vh;" class="bi bi-caret-up-fill"></i>
+      </div>
+    </div>
+   <div *ngFor="let singleMenu of menu.menuItems" (click)="onMenuSelected(singleMenu)" >
+    <div class="navBox child-menu-box" [ngStyle]="{'visibility': singleMenu?.expand ? 'visible' : 'hidden', 'height': singleMenu?.expand ? '10vh' : '0'}">
+      <div class="tic-pfm-menu-icon">
+        <i class={{singleMenu.menuIcon}}></i>
+      </div>
+      <div class="tic-menu-item-name">
+        <span matTooltip={{singleMenu.menuDisplayName}} >{{singleMenu.menuDisplayName}}</span>
+      </div>
+      <div class="single-menu tic-pfm-icon">
+        <i style="margin-top: 0.8vh;" ></i>
+      </div>
+    </div>
+   </div>
+  </div>
+ 
+</div>

@@ -191,6 +191,6 @@ export class menuConfigration {
     archive.finalize();
 });
 
-app.listen(port, () => {
+app.listen(port,'0.0.0.0', () => {
     console.log(`\x1b[32mServer running at http://localhost:${port}/download-project\x1b[0m`); // Green
 });

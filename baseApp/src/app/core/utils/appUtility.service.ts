@@ -6,17 +6,19 @@ import { Router } from '@angular/router';
 })
 export class AppUtility {
   currentPage: string = "home";
+  isMainloading: boolean = false
   constructor(private router: Router) {}
 
   appConfig: any = {
     applicationName: "",
     userName: "",
+    userMail: "",
     assignedMenugroups: []
   }
 
   routerNavigation( queryParams: object, navigationUrl: string) {
     console.log(queryParams,navigationUrl );
     
-      this.router.navigate([`/${navigationUrl}`], {queryParams, queryParamsHandling: 'preserve',skipLocationChange: true});
+      this.router.navigate([`/${navigationUrl}`], {queryParams, skipLocationChange: true});
     }
 }

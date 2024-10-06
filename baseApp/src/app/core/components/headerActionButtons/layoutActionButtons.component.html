@@ -1,0 +1,25 @@
+<div class="action-buttons">
+    <div class="button" *ngFor="let button of buttonData">
+        <button *ngIf="button.buttonType === 'TEXT-ONLY'"
+            mat-raised-button color="primary"
+            [style.background-color]="button.buttonBackgroundColor"
+            [style.color]="button.buttonTextColor"
+            (click)="onButtonClick(button)" [matTooltip]="button?.buttonText" matTooltipPosition="above">
+            {{ button.buttonText }}
+        </button>
+        <button *ngIf="button.buttonType === 'TEXT+ICON'"
+            mat-raised-button color="primary"
+            [style.background-color]="button.buttonBackgroundColor"
+            [style.color]="button.buttonTextColor"
+            (click)="onButtonClick(button)" [matTooltip]="button?.buttonText" matTooltipPosition="above">
+            <mat-icon>{{button.buttonIcon}}</mat-icon>{{ button.buttonText }}
+        </button>
+        <button *ngIf="button.buttonType === 'ICON-ONLY'"
+        mat-mini-fab color="primary"
+            [style.background-color]="button.buttonBackgroundColor"
+            [style.color]="button.buttonIconColor"
+            (click)="onButtonClick(button)" [matTooltip]="button?.buttonText" matTooltipPosition="above">
+            <mat-icon>{{button.buttonIcon}}</mat-icon>
+          </button>
+    </div>
+</div>

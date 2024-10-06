@@ -1,0 +1,5 @@
+.action-buttons {
+    display: flex;
+    gap: 5vh;
+    align-items: center;
+}

@@ -1,0 +1,8 @@
+<angular-slickgrid
+gridId="grid1"
+[columnDefinitions]="ticSlickGridUtils.columnDefinitions"
+[gridOptions]="ticSlickGridUtils.gridOptions"
+(onAngularGridCreated)="ticSlickGridUtils.onAngularGridCreated($event, parentContext)"
+(onGridStateChanged)="ticSlickGridUtils.gridStateChanged($event)"
+>
+</angular-slickgrid>

@@ -6,7 +6,7 @@
     <div class="LogoImageContainer">
       <img class="tic-pfm-org-image" width="100%" src="/assets/Images/tic-logo.png" alt="">
     </div>
-    <span class="tic-pfm-menu-title">{{appUtils.appConfig.applicationName}}</span>
+    <span class="tic-pfm-menu-title">{{appUtils.appConfig.applicationDisplayName}}</span>
   </div>
   <div class="tic-pfm-menu-right">
     <div class="LogoImageContainer" matTooltip="Notification">
@@ -19,8 +19,8 @@
     </div>
   </div>
 </div>
-<div class="menu-backdrop" [@fadeInOut]="backdropState" (click)="toggleSideNav()"></div>
-<div #sideNavContainer class="tic-pfm-side-nav-container" [@slideInOut]="sideNavState">
+<div class="menu-backdrop" style="z-index: 98 !important;" [@fadeInOut]="backdropState" (click)="toggleSideNav()"></div>
+<div #sideNavContainer style="z-index: 99 !important;" class="tic-pfm-side-nav-container" [@slideInOut]="sideNavState">
   <div class="tic-pfm-menu-spacer"></div>
   <div class="navBox" (click)="onMenuSelected('home')">
     <div class="tic-pfm-menu-icon">

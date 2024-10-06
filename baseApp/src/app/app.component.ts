@@ -8,7 +8,7 @@ import { AppUtility } from './core/utils/appUtility.service';
 })
 export class AppComponent implements OnInit{
 
-  constructor(private appUtils: AppUtility) {}
+  constructor(public appUtils: AppUtility) {}
 
   appConfig: any = {
     

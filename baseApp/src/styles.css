@@ -1,4 +1,23 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import '@slickgrid-universal/common/dist/styles/sass/slickgrid-theme-material.scss';
+/* WebKit-based browsers */
+::-webkit-scrollbar {
+    width: 8px; /* Adjust width for vertical scrollbar */
+    height: 8px; /* Adjust height for horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar handle */
+    border-radius: 4px; /* Round the edges of the handle */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scrollbar handle on hover */
+}
 
 *{
     padding: 0;
@@ -12,10 +31,10 @@
     background-color: #fff;
     top: 0;
     position: absolute;
-    z-index: 5;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
+    z-index: 100 !important;
     justify-content: space-between;
 }
 
@@ -97,6 +116,7 @@ i {
     flex-direction: column;
     width: 50vh;
     height: 100svh;
+    z-index: 99;
     position: absolute;
     background-color: #fff;
     left: -50vh; /* Start off-screen */
@@ -110,6 +130,7 @@ i {
     height: 100vh;
     position: absolute;
     top: 0;
+    z-index: 98;
     background-color: rgba(0, 0, 0, 0.336);
     opacity: 0; /* Initially hidden */
     transition: opacity 0.2s ease-in-out;
@@ -122,8 +143,10 @@ i {
     align-items: center;
     height: 10vh;
     width: 100%;
+    z-index: 100;
     border-bottom: 1px solid #00000028;
 }
+
 
 .tic-menu-item-name {
     width: 25vh;
@@ -141,3 +164,537 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .tic-pfm-menu-right .LogoImageContainer {
     margin-right: 5vh;
 }
+
+.dummyHeader{
+    height: 10vh;
+    width: 100%;
+}
+
+
+/* Entry Page Styles */
+
+.pageHeader {
+    width: 95%;
+    height: 10svh;
+    padding-inline: 2.5%;
+    background-color: #fff;
+    z-index: 5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 97;
+    top: 10vh;
+}
+
+.pageTitle h2{
+    font-size: 4vh;
+    color: #1b1b1b;
+    font-weight: 400 !important;
+}
+
+.mat-mdc-raised-button.mat-primary {
+    --mdc-protected-button-container-color: rgba(0, 179, 255, 0.233);
+}
+
+html .mat-mdc-mini-fab.mat-primary {
+    --mdc-fab-small-container-color: rgba(0, 179, 255, 0.233);
+}
+
+.ticHeaderButtons{
+    --mdc-fab-small-container-color: rgba(0, 134, 191, 0.358) !important;
+}
+
+.applicationContainer {
+    width: 100%;
+    min-height: 80svh;
+    overflow-Y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.applicationContainer>div:last-child {
+    margin-bottom: 5vh;
+}
+
+.section {
+    width: 95%;
+    border-radius: 5vh;
+    overflow: hidden;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15), 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sectionHeader {
+    width: 95%;
+    padding-inline: 2.5%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 179, 255, 0.142);
+}
+
+.sectionHeader span{
+    font-size: 3vh;
+    color: #555;
+    font-weight: 500;
+}
+
+.sectionContent {
+    width: 100%;
+    /* min-height: 60vh; */
+}
+
+.sectionContent>div:last-child{
+    margin-bottom: 4vh;
+}
+
+.row{
+    width: 95%;
+    padding-inline: 2.5%;
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.row:only-child .inputContainer {
+    width: 100%;
+}
+
+.inputContainer {
+    flex: 1;
+    min-width: 100px;
+    min-height: 12.5vh;
+    padding-block: 2.5vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inputContainer span {
+    margin-bottom: 1vh;
+    font-size: 2.3vh;
+    font-weight: 550;
+    color:#4e4e4e;
+}
+
+.fieldNameSkeleton{
+    height: 3vh;
+    width: 30%;
+    margin-bottom: 1vh;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+
+.required {
+    color: red !important;
+    font-size: 2.5vh !important;
+}
+
+.formulaIdentifier {
+    font-size: 2.5vh !important;
+    margin-left: 1vh;
+    font-style: italic;
+    border: 1px solid #eee;
+    border-radius: 50%;
+    background-color: transparent !important;
+    padding: 0.4vh 0.8vh !important;
+    color: #82c4f8 !important;
+    cursor: pointer;
+}
+
+.formulaIdentifier:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15), 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.helpToolIdentifier {
+    margin-left: 1vh;
+    font-size: 2.5vh !important;
+    border: 1px solid #eee;
+    border-radius: 50%;
+    background-color: transparent !important;
+    padding: 0.4vh 1.2vh !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15), 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.inputContainer input, .inputContainer select, .inputContainer textarea {
+    padding: 1.5vh;
+    width: 96%;
+    border: none;
+    border: 1px solid #48414142;
+    border-radius: 1vh;
+    font-family: roboto;
+  }
+
+  
+  .inputFieldSkeleton {
+    height:6vh;
+    width: 96%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+  }
+  @keyframes skeleton-loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+/* 
+  .inputContainer textarea{
+    margin-block: 3vh;    
+  } */
+
+  .readOnlyTextBox {
+    background-color: #f2f2f2;
+  }
+
+  .readOnlyTextBox:focus {
+    outline: none !important;
+    border: 1px solid #48414142 !important;
+    box-shadow: none !important;
+  }
+
+  .inputContainer option {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(35, 149, 255, 0.37) !important;
+}
+
+.inputContainer input:focus, .inputContainer select:focus, .inputContainer textarea:focus , .mdc-text-field--focused {
+    box-shadow: 0 0 20px rgba(35, 149, 255, 0.37) !important;
+    border: 1px solid rgb(0, 157, 255) !important;
+    outline: none !important;
+}
+
+.viewBox {
+    width: 96%;
+    border: none;
+    border-radius: 1vh;
+}
+
+.listContainer {
+    width: 100%;
+    min-height: 45vh !important;
+    overflow: hidden;
+}
+
+.slick-grid-menu-button {  
+    display: none;
+}
+
+.slick-header-column {
+    .slick-header-menu-button {
+        display: none;
+    }
+
+    &:hover {
+        .slick-header-menu-button {
+            display: inline;
+        }
+    }
+}
+
+.slickgrid-container .grid-canvas .slick-cell.selected {
+    background-color: #eeeeeeaa;
+}
+
+.slickgrid-container .grid-canvas .slick-row.odd .slick-cell.selected {
+    border: none;    
+}
+
+/* Remove odd and even row background colors */
+.slick-row.odd,
+.slick-row.even {
+  background-color: transparent !important;
+}
+
+/* Apply hover effect with RGBA color */
+.slick-row:hover {
+  background-color: rgba(0, 179, 255, 0.063) !important;
+}
+
+
+.slick-cell {
+    border: 0.5px solid #dedede7b !important;
+}
+
+body .slickgrid-container .slick-header-columns .slick-header-column.ui-state-default {
+    border: 0.5px solid #dedede4f !important;
+}
+
+.slick-cell.frozen.true {
+    background-color: #e2f2ff !important;
+    border: 0.1vh solid rgba(0, 140, 255, 0.26) !important;
+  }
+
+  .ui-state-default.slick-header-column.frozen {
+    border: 0.1vh solid red !important;
+}
+
+.slick-preheader-panel.ui-state-default{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.ui-droppable.ui-sortable {
+    width: 70vw !important;
+    height: 9vh;
+    background-color: #e2f2ff;
+    border-radius: 2vh;
+    border: 1px dashed #82c4f8 !important;
+    position: sticky;
+    left: 5vw;
+}
+
+.slick-dropped-grouping {
+    background-color: #fff !important;
+    padding: 0.5vh 2.4vh !important;
+    border-radius: 6vh !important;
+    position: relative !important;
+    margin-right: 2vw !important;
+}
+
+.text-color-danger {
+    position: absolute !important;
+    top: -1vh !important;
+    right: -2vh !important;
+    background-color: #ff5f5f !important;
+    color: #fff !important;
+    border-radius: 50% !important;
+    font-weight: bold !important;
+}
+
+.custom-delete-icon {
+    font-weight: bold;
+    color: white;
+  }
+  
+  .slick-cell-checkboxsel.true {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slick-header-column {
+    background-color: #eee !important;
+  }
+
+  .loader {
+    height: 4px;
+    width: 130px;
+    --c:no-repeat linear-gradient(#6100ee 0 0);
+    background: var(--c),var(--c),#d7b8fc;
+    background-size: 60% 100%;
+    animation: l16 0.5s infinite;
+  }
+  @keyframes l16 {
+    0%   {background-position:-150% 0,-150% 0}
+    66%  {background-position: 250% 0,-150% 0}
+    100% {background-position: 250% 0, 250% 0}
+  }
+
+
+  .search-filter .operator.input-group-addon select {
+    border: 1px solid rgb(0, 179, 255);
+  }
+
+  .slickgrid-container .slick-row .slick-cell.active {
+    box-shadow: inset 0 0 0 0px #aaaaaa;
+}
+
+.gridPane .form-control:focus, .grid-pane .form-control:focus, .slick-editor-modal .form-control:focus {
+    border-color: rgb(0, 179, 255) !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px rgba(0, 179, 255, 0.3) !important;
+}
+
+.slickgrid-container {
+    max-height: 55vh !important;
+}
+
+.gridPane {
+    max-height: 56vh !important;
+
+}
+
+.ui-widget-content:hover {
+    font-weight: 600 !important;
+    color: #747474 !important;
+}
+
+.ui-widget-content {
+    color: #747474 !important;
+}
+
+.paginationDetails span{
+    font-size: 2.6vh;
+}
+
+.paginationSelect {
+    outline: none;
+    border: none;
+    font-size: 2.6vh;
+    font-weight: 500;
+    appearance: none;
+    background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16"><path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>') no-repeat right;
+    /* // background-position: left 5vh right; */
+    padding-right: 2vh;
+}
+
+.slick-empty-data-warning {
+    display: none !important;
+}
+
+.slick-pagination-container {
+    display: none !important;
+}
+
+.slick-cell {
+    user-select: none !important;
+}
+
+.slick-cell.active.editable {
+    user-select: none !important;
+}
+
+.slickgrid-container .grid-canvas .slick-cell {
+    display: flex;
+    align-items: center;
+    padding-inline: 2vh;
+}
+
+.heading-element {
+    justify-content: flex-start !important;
+}
+
+.mat-mdc-radio-button.mat-primary { 
+    --mat-radio-checked-ripple-color: transparent !important;
+}
+
+.example-radio-button {
+   margin-right: 2vh
+}
+
+.mainLoader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1b1b1b7b;
+}
+
+.mainLoader img{
+    position: absolute;
+    top: 20vh;
+    width: 55vh;
+    height: 50vh;
+}
+
+.slick-column-name, .slick-sort-indicator { 
+    margin-bottom: 0;
+}
+
+.slick-header-column {
+    align-items: center !important;
+    justify-content: flex-start !important;
+    display: flex !important;
+}
+
+.mat-mdc-select-value {
+    font-size: 2vh !important;
+}
+
+.mat-mdc-form-field-infix {
+    padding: 0 !important;
+}
+
+.mat-mdc-form-field-subscript-wrapper .mat-mdc-form-field-bottom-align {
+   margin: 0;
+}
+
+.mat-mdc-text-field-wrapper  {
+    max-height: 6vh !important;
+    border-radius: 1.5vh !important;
+    background-color: #ffffff !important;
+    width: 96% !important;
+    border: 1px solid rgba(72, 65, 65, 0.26);
+    border-radius: 1vh !important;
+}
+
+.mat-mdc-form-field-subscript-wrapper  {
+    display: none !important;
+}
+
+.mat-mdc-form-field-infix {
+     min-height: 4vh !important;
+}
+
+.no-underline .mat-form-field-underline {
+    display: none !important;
+  }
+  
+  .no-underline .mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+  }
+    
+  .mdc-line-ripple  {
+    display: none !important;
+  }
+
+.mdc-line-ripple--active {
+    display: none !important;
+}
+
+.mat-mdc-text-field-wrapper {
+    height: 7vh !important;
+    flex: auto !important;
+    will-change: auto !important;
+    display: flex !important;
+    align-items: center !important ;
+}
+
+.ng-trigger {
+    border-radius: 3vh !important;
+}
+
+.mdc-text-field--filled {
+    background-color: #ffffff !important;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: #fff !important;
+}
+
+.mat-mdc-form-field.mat-focused .mat-mdc-form-field-focus-overlay {
+    opacity: 0 !important;
+}
+
+.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
+    color: #000 !important;
+}
+
+.mat-mdc-select-min-line {
+    font-weight: 500 !important;
+    font: normal;
+}
+

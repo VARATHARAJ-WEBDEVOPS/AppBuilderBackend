@@ -1,0 +1,129 @@
+@media (max-width: 576px) {
+    .tic-pfm-menu-bar {
+        height: 8vh !important;
+        width: 95vw;
+    }
+
+    .tic-pfm-home-container img{
+        width: 50vw;
+    }
+
+    .row {
+        flex-direction: column; 
+    }
+
+    .inputContainer {
+        width: 100%; 
+        margin-bottom: 1rem;
+        padding-block: 1vh !important;
+    }
+
+    .inputContainer input, .inputContainer select, .inputContainer textarea {
+        padding: 1.5vh;
+        width: 93%;
+        margin: 0;
+        border: none;
+        border: 1px solid #48414142;
+        border-radius: 1vh;
+        font-family: roboto;
+      }
+
+    .userProfile span {
+        height: 5vh;
+        width: 5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3vh;
+    }
+
+    .LogoImageContainer {
+        height: 6vh;
+        width: 6vh;
+    }
+
+    .tic-pfm-menu-right .LogoImageContainer {
+        margin-right: 2vh;
+        margin-left: 1vh;
+    }
+
+    .LogoImageContainer {
+        margin-left: 1vh !important;
+    }
+    .tic-pfm-menu-title {
+        margin-left: 1vh;
+        font-size: 1rem;
+    }
+
+    .tic-pfm-icon {
+        width: 5vh !important;
+        height: 5vh !important;
+    }
+
+    .tic-pfm-icon i{
+        font-size: 2.5vh !important;
+    }
+
+    .tic-pfm-side-nav-container {
+    height: 100vh;
+    width: 70vw;
+    }
+    
+    .navBox {
+        height: 7vh;
+    }
+
+    .tic-pfm-menu-icon {
+        width: 5vh !important;
+        height: 5vh !important;
+    }
+
+    .tic-menu-item-name {
+        width: 15vh;
+    }
+
+    .tic-pfm-menu-icon i {
+        font-size: 2.3vh
+    }
+     
+    .pageHeader {
+        top: 8vh;
+    }
+
+    .pageTitle h2 {
+        font-size: 2vh !important;
+    }
+
+    .action-buttons {
+        gap: 1vh !important;
+    }
+
+    .applicationContainer > div:last-child {
+        margin-bottom: 0.5vh;
+    }
+
+    .section {
+        margin-top: 0.5vh;
+        border-radius: 3vh;
+    }
+
+    .sectionHeader {
+        height: 8vh;
+    }
+
+    .sectionHeader span{
+        font-size: 2vh;
+    }
+
+    .row{
+
+    }
+    .inputContainer {
+        font-size: 1.7vh;
+        padding-block: 1vh;
+    }
+
+.inputContainer span { 
+    font-size: 1.5vh;
+}
+  }

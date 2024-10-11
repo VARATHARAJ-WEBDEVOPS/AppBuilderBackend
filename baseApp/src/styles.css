@@ -159,6 +159,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .tic-pfm-menu-right {
     display: flex;
+    align-items: center;
 }
 
 .tic-pfm-menu-right .LogoImageContainer {
@@ -209,6 +210,7 @@ html .mat-mdc-mini-fab.mat-primary {
 .applicationContainer {
     width: 100%;
     min-height: 80svh;
+    max-height: 80svh;
     overflow-Y: auto;
     display: flex;
     flex-direction: column;
@@ -222,11 +224,15 @@ html .mat-mdc-mini-fab.mat-primary {
 .section {
     width: 95%;
     border-radius: 5vh;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin-top: 5vh;
     display: flex;
     flex-direction: column;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15), 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sectionHeader:first-of-type {
+  border-radius: 5vh 5vh 0 0;
 }
 
 .sectionHeader {
@@ -254,7 +260,7 @@ html .mat-mdc-mini-fab.mat-primary {
     margin-bottom: 4vh;
 }
 
-.row{
+.row {
     width: 95%;
     padding-inline: 2.5%;
     display: flex;
@@ -541,6 +547,34 @@ body .slickgrid-container .slick-header-columns .slick-header-column.ui-state-de
     color: #747474 !important;
 }
 
+.ui-widget {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    overflow: auto;
+}
+
+.gridPane{
+    width: 100% !important;
+    max-height: 100% !important;
+}
+.slickgrid-container .grid-canvas {
+    position: relative;
+    max-height: 100%;
+    outline: 0;
+}
+body .slick-pane .slick-pane-header .slick-pane-left{
+    border: 0.5px solid #dedede4f !important;
+}
+
+body .slick-pane .slick-pane-header .slick-pane-right{
+    border: 0.5px solid #dedede4f !important;
+}
+
+body .slickgrid-container .slick-header-columns .slick-header-column.ui-state-default {
+    border: 0.5px solid #dedede4f !important;
+}
+
+
 .paginationDetails span{
     font-size: 2.6vh;
 }
@@ -576,6 +610,8 @@ body .slickgrid-container .slick-header-columns .slick-header-column.ui-state-de
     display: flex;
     align-items: center;
     padding-inline: 2vh;
+    max-width: 100% !important;
+    max-height: 100% !important;
 }
 
 .heading-element {
@@ -671,10 +707,6 @@ body .slickgrid-container .slick-header-columns .slick-header-column.ui-state-de
     will-change: auto !important;
     display: flex !important;
     align-items: center !important ;
-}
-
-.ng-trigger {
-    border-radius: 3vh !important;
 }
 
 .mdc-text-field--filled {
